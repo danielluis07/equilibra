@@ -2,6 +2,7 @@ export default function Home() {
   return (
     <div>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <p>Welcome to the public page.</p>
     </div>
   );
 }
