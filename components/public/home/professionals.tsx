@@ -1,41 +1,6 @@
 import Image from "next/image";
-
-const professionals = [
-  {
-    name: "Dra. Camila Ferreira",
-    role: "Psicóloga Clínica — CRP 06/12345",
-    specialty: "TCC · Ansiedade · Depressão",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-    quote:
-      "Acredito que cada pessoa possui dentro de si os recursos para a mudança.",
-  },
-  {
-    name: "Dr. Rafael Mendes",
-    role: "Psiquiatra — CRM 54321",
-    specialty: "Psicofarmacologia · Transtornos de Humor",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-    quote: "Saúde mental é prioridade. O tratamento adequado pode mudar vidas.",
-  },
-  {
-    name: "Dra. Juliana Costa",
-    role: "Psicóloga Infantil — CRP 06/67890",
-    specialty: "Ludoterapia · Desenvolvimento Infantil",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-    quote:
-      "No brincar, a criança encontra um caminho seguro para expressar seus sentimentos.",
-  },
-  {
-    name: "Dr. André Oliveira",
-    role: "Psicólogo — CRP 06/11223",
-    specialty: "Terapia de Casal · Psicanálise",
-    image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-    quote: "A relação terapêutica é a base de toda transformação pessoal.",
-  },
-];
+import Link from "next/link";
+import { featuredProfessionals } from "@/lib/professionals";
 
 export function Professionals() {
   return (
@@ -58,9 +23,10 @@ export function Professionals() {
 
         {/* Professionals grid */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {professionals.map((person, index) => (
-            <div
-              key={person.name}
+          {featuredProfessionals.map((person, index) => (
+            <Link
+              key={person.slug}
+              href={`/professionals/${person.slug}`}
               className="group relative"
               style={{ animationDelay: `${index * 150}ms` }}>
               {/* Photo */}
@@ -103,9 +69,9 @@ export function Professionals() {
                 {person.role}
               </p>
               <p className="mt-1.5 text-xs font-medium tracking-wide text-primary">
-                {person.specialty}
+                {person.focus.join(" · ")}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

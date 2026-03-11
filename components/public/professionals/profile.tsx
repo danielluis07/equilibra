@@ -16,76 +16,28 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Professional } from "@/lib/professionals";
 
-const PLACEHOLDER_IMAGE =
-  "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=1000&fit=crop&crop=faces";
-
-/* ── Static mock data ── */
-const professional = {
-  name: "Dra. Camila Ferreira",
-  slug: "dra-camila-ferreira",
-  crp: "CRP 06/12345",
-  title: "Psicóloga Clínica",
-  specialty: "Terapia Cognitivo-Comportamental",
-  rating: 4.9,
-  reviews: 127,
-  experience: "12 anos",
-  bio: `Sou psicóloga clínica com mais de 12 anos de experiência no atendimento a adultos e adolescentes. Minha abordagem é fundamentada na Terapia Cognitivo-Comportamental (TCC), aliada a técnicas de mindfulness e terapia do esquema.
-
-Acredito que cada pessoa traz consigo os recursos necessários para a mudança — meu papel é acompanhar esse processo com acolhimento, escuta atenta e ferramentas baseadas em evidências científicas.
-
-Ao longo da minha trajetória, tive o privilégio de ajudar centenas de pessoas a superarem quadros de ansiedade, depressão, transtorno obsessivo-compulsivo e dificuldades nos relacionamentos. Cada história me ensina algo novo e reforça minha paixão por essa profissão.`,
-  education: [
-    "Graduação em Psicologia — Universidade de São Paulo (USP)",
-    "Especialização em TCC — Instituto de Psiquiatria do HC-FMUSP",
-    "Formação em Terapia do Esquema — ISST (International Society of Schema Therapy)",
-    "Mestrado em Psicologia Clínica — PUC-SP",
-  ],
-  specialties: [
-    "Terapia Cognitivo-Comportamental (TCC)",
-    "Terapia do Esquema",
-    "Mindfulness e Técnicas de Relaxamento",
-    "Psicoterapia Breve",
-  ],
-  targetAudience: [
-    { icon: Users, label: "Adultos (18+)" },
-    { icon: GraduationCap, label: "Adolescentes (14–17)" },
-    { icon: Heart, label: "Casais" },
-  ],
-  focusAreas: [
-    "Ansiedade e Pânico",
-    "Depressão",
-    "Transtorno Obsessivo-Compulsivo (TOC)",
-    "Estresse e Burnout",
-    "Dificuldades nos Relacionamentos",
-    "Autoestima e Autoconhecimento",
-    "Luto e Perdas",
-    "Fobias Específicas",
-  ],
-  modalities: [
-    {
-      icon: MapPin,
-      label: "Presencial",
-      detail: "Av. Paulista, 1578 — Conj. 412, São Paulo – SP",
-    },
-    {
-      icon: Video,
-      label: "Online",
-      detail: "Atendimento por videoconferência via plataforma segura",
-    },
-  ],
-  schedule: [
-    { day: "Segunda-feira", hours: "8h – 18h" },
-    { day: "Terça-feira", hours: "8h – 20h" },
-    { day: "Quarta-feira", hours: "8h – 18h" },
-    { day: "Quinta-feira", hours: "8h – 20h" },
-    { day: "Sexta-feira", hours: "8h – 16h" },
-  ],
-  sessionDuration: "50 minutos",
-  nextAvailable: "Quarta, 12 de março",
+type ProfessionalProfileProps = {
+  professional: Professional;
 };
 
-export function ProfessionalProfile() {
+const getAudienceIcon = (label: string) => {
+  if (label.includes("Adolescentes")) {
+    return GraduationCap;
+  }
+  if (label.includes("Casais")) {
+    return Heart;
+  }
+  if (label.includes("Criancas") || label.includes("Familias")) {
+    return Heart;
+  }
+  return Users;
+};
+
+export function ProfessionalProfile({
+  professional,
+}: ProfessionalProfileProps) {
   return (
     <div className="relative pt-24 pb-24 lg:pt-32 lg:pb-32">
       {/* Decorative blobs */}
@@ -109,7 +61,7 @@ export function ProfessionalProfile() {
             {/* Photo column */}
             <div className="relative aspect-3/4 lg:aspect-auto">
               <Image
-                src={PLACEHOLDER_IMAGE}
+                src={professional.image}
                 alt={professional.name}
                 fill
                 className="object-cover"
@@ -120,7 +72,7 @@ export function ProfessionalProfile() {
               <div className="absolute inset-0 bg-linear-to-t from-card via-transparent to-transparent lg:hidden" />
 
               {/* Rating chip */}
-              <div className="absolute top-4 left-4 flex items-center gap-1.5 rounded-full bg-background/80 px-3 py-1.5 text-sm font-semibold backdrop-blur-sm">
+              <div className="absolute bottom-4 right-4 flex items-center gap-1.5 rounded-full bg-background/80 px-3 py-1.5 text-sm font-semibold backdrop-blur-sm">
                 <Star className="size-3.5 fill-amber-400 text-amber-400" />
                 {professional.rating}
                 <span className="text-xs font-normal text-muted-foreground">
@@ -152,7 +104,7 @@ export function ProfessionalProfile() {
                 <span className="text-muted-foreground">·</span>
                 <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
                   <BadgeCheck className="size-4 text-primary" />
-                  {professional.crp}
+                  {professional.registration}
                 </span>
               </div>
 
@@ -271,16 +223,20 @@ export function ProfessionalProfile() {
             <section className="animate-fade-up animation-delay-600">
               <h2 className="text-2xl tracking-tight">Público Atendido</h2>
               <div className="mt-5 flex flex-wrap gap-4">
-                {professional.targetAudience.map((item) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-3 rounded-xl border border-border/50 bg-card/60 px-5 py-3.5 transition-colors hover:border-primary/20">
-                    <item.icon className="size-5 text-primary" />
-                    <span className="text-sm font-medium text-foreground">
-                      {item.label}
-                    </span>
-                  </div>
-                ))}
+                {professional.targetAudience.map((item) => {
+                  const AudienceIcon = getAudienceIcon(item);
+
+                  return (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 rounded-xl border border-border/50 bg-card/60 px-5 py-3.5 transition-colors hover:border-primary/20">
+                      <AudienceIcon className="size-5 text-primary" />
+                      <span className="text-sm font-medium text-foreground">
+                        {item}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
@@ -314,14 +270,18 @@ export function ProfessionalProfile() {
               <div className="mt-4 space-y-3">
                 {professional.modalities.map((mod) => (
                   <div
-                    key={mod.label}
+                    key={mod.type}
                     className="flex items-start gap-3 rounded-xl bg-muted/30 p-3.5">
                     <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                      <mod.icon className="size-4 text-primary" />
+                      {mod.type === "Online" ? (
+                        <Video className="size-4 text-primary" />
+                      ) : (
+                        <MapPin className="size-4 text-primary" />
+                      )}
                     </div>
                     <div>
                       <p className="text-sm font-medium text-foreground">
-                        {mod.label}
+                        {mod.type}
                       </p>
                       <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
                         {mod.detail}

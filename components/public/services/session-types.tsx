@@ -44,7 +44,7 @@ const sessions = [
     description:
       "Espaço seguro para casais trabalharem a comunicação, resolverem conflitos e fortalecerem os laços afetivos. O terapeuta atua como mediador, facilitando o diálogo e promovendo a compreensão mútua.",
     image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=700&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1604881990409-b9f246db39da?w=700&h=500&fit=crop",
     duration: "75 min",
     formats: ["Presencial", "Online"],
     audiences: ["Casais"],
@@ -86,7 +86,7 @@ const sessions = [
     description:
       "Atendimento especializado para crianças, utilizando o brincar como linguagem terapêutica. Em um ambiente lúdico e seguro, a criança expressa emoções, trabalha dificuldades e desenvolve habilidades socioemocionais.",
     image:
-      "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=700&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1537655780520-1e392ead81f2?w=700&h=500&fit=crop",
     duration: "50 min",
     formats: ["Presencial"],
     audiences: ["Crianças (4–12 anos)"],
@@ -107,7 +107,7 @@ const sessions = [
     description:
       "Avaliações neuropsicológicas e psicodiagnósticos realizados por profissionais especializados, com emissão de laudos completos para diversas finalidades: clínica, jurídica, escolar e profissional.",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1616740793717-0aca29b92221?w=700&h=500&fit=crop",
     duration: "90 min por sessão",
     formats: ["Presencial"],
     audiences: ["Crianças", "Adolescentes", "Adultos"],
@@ -128,7 +128,7 @@ const sessions = [
     description:
       "Sessões por videoconferência com a mesma qualidade, sigilo e eficácia do atendimento presencial. Ideal para quem tem rotina corrida, mora em outra cidade ou prefere a comodidade do atendimento remoto.",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1758876020204-0ce6075ca42c?w=700&h=500&fit=crop",
     duration: "50 min",
     formats: ["Online"],
     audiences: ["Adultos", "Adolescentes", "Casais"],

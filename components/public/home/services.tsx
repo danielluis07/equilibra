@@ -15,7 +15,7 @@ const services = [
     description:
       "Sessões personalizadas para adultos com foco em autoconhecimento, manejo de ansiedade, depressão e desenvolvimento pessoal.",
     image:
-      "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1551847677-dc82d764e1eb?w=600&h=400&fit=crop",
   },
   {
     icon: HeartHandshake,
@@ -23,7 +23,7 @@ const services = [
     description:
       "Fortalecimento de vínculos, resolução de conflitos e melhoria da comunicação entre parceiros.",
     image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1604881990409-b9f246db39da?w=600&h=400&fit=crop",
   },
   {
     icon: Baby,
@@ -31,7 +31,7 @@ const services = [
     description:
       "Atendimento lúdico e acolhedor para crianças, ajudando no desenvolvimento emocional e comportamental.",
     image:
-      "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1537655780520-1e392ead81f2?w=600&h=400&fit=crop",
   },
   {
     icon: Users,
@@ -47,7 +47,7 @@ const services = [
     description:
       "Avaliações neuropsicológicas e psicodiagnósticos com laudos completos para diferentes finalidades.",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1616740793717-0aca29b92221?w=600&h=400&fit=crop",
   },
   {
     icon: Laptop,
@@ -55,7 +55,7 @@ const services = [
     description:
       "Sessões por videoconferência com a mesma qualidade do presencial, onde quer que você esteja.",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1758876020204-0ce6075ca42c?w=600&h=400&fit=crop",
   },
 ];
 

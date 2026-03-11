@@ -1,4 +1,6 @@
 import { ProfessionalProfile } from "@/components/public/professionals/profile";
+import { getProfessionalBySlug } from "@/lib/professionals";
+import { notFound } from "next/navigation";
 
 const ProfessionalPage = async ({
   params,
@@ -6,10 +8,13 @@ const ProfessionalPage = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
+  const professional = getProfessionalBySlug(slug);
 
-  console.log("Professional slug:", slug);
+  if (!professional) {
+    notFound();
+  }
 
-  return <ProfessionalProfile />;
+  return <ProfessionalProfile professional={professional} />;
 };
 
 export default ProfessionalPage;
