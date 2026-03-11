@@ -1,5 +1,7 @@
 import { dmSans, dmSerifDisplay } from "@/fonts";
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/public/navbar";
+import { Footer } from "@/components/public/footer";
 
 export default function PublicLayout({
   children,
@@ -7,13 +9,17 @@ export default function PublicLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className={cn(
-        "public-theme min-h-screen font-sans",
-        dmSans.variable,
-        dmSerifDisplay.variable,
-      )}>
-      <main>{children}</main>
-    </div>
+    <>
+      <Navbar />
+      <main
+        className={cn(
+          "public-theme min-h-screen font-sans",
+          dmSans.variable,
+          dmSerifDisplay.variable,
+        )}>
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }
